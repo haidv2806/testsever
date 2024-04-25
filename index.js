@@ -36,12 +36,13 @@ app.use(passport.initialize());
 app.use(passport.session());
 
 // liên kết với cơ sở dữ liệu
-const db = new pg.Client({
-  user: process.env.PG_USER,
-  host: process.env.PG_HOST,
-  database: process.env.PG_DATABASE,
-  password: process.env.PG_PASSWORD,
-  port: process.env.PG_PORT,
+const db = new Pool({
+  // user: process.env.PG_USER,
+  // host: process.env.PG_HOST,
+  // database: process.env.PG_DATABASE,
+  // password: process.env.PG_PASSWORD,
+  // port: process.env.PG_PORT,
+  connectionString: process.env.POSTGRES_URL ,
 });
 db.connect();
 
@@ -868,7 +869,7 @@ passport.use(
     {
       clientID: process.env.GOOGLE_CLIENT_ID,
       clientSecret: process.env.GOOGLE_CLIENT_SECRET,
-      callbackURL: "http://localhost:3000/auth/google/secrets",
+      callbackURL: "https://smartphone-6u69.onrender.com/auth/google/secrets",
       userProfileURL: "https://www.googleapis.com/oauth2/v3/userinfo",
     },
     async (accessToken, refreshToken, profile, cb) => {
