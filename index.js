@@ -34,7 +34,7 @@ app.use(
 // sử dụng passport và session
 app.use(passport.initialize());
 app.use(passport.session());
-
+const { Pool } = pg;
 // liên kết với cơ sở dữ liệu
 const db = new Pool({
   // user: process.env.PG_USER,
