@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Yêu thích | Di động High-tech</title>
+
+    <!-- Favicon -->
+    <link
+      rel="apple-touch-icon"
+      sizes="57x57"
+      href="./assets/favicon/apple-icon-57x57.png"
+    />
+    <link
+      rel="apple-touch-icon"
+      sizes="60x60"
+      href="./assets/favicon/apple-icon-60x60.png"
+    />
+    <link
+      rel="apple-touch-icon"
+      sizes="72x72"
+      href="./assets/favicon/apple-icon-72x72.png"
+    />
+    <link
+      rel="apple-touch-icon"
+      sizes="76x76"
+      href="./assets/favicon/apple-icon-76x76.png"
+    />
+    <link
+      rel="apple-touch-icon"
+      sizes="114x114"
+      href="./assets/favicon/apple-icon-114x114.png"
+    />
+    <link
+      rel="apple-touch-icon"
+      sizes="120x120"
+      href="./assets/favicon/apple-icon-120x120.png"
+    />
+    <link
+      rel="apple-touch-icon"
+      sizes="144x144"
+      href="./assets/favicon/apple-icon-144x144.png"
+    />
+    <link
+      rel="apple-touch-icon"
+      sizes="152x152"
+      href="./assets/favicon/apple-icon-152x152.png"
+    />
+    <link
+      rel="apple-touch-icon"
+      sizes="180x180"
+      href="./assets/favicon/apple-icon-180x180.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="192x192"
+      href="./assets/favicon/android-icon-192x192.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="./assets/favicon/favicon-32x32.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="96x96"
+      href="./assets/favicon/favicon-96x96.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="16x16"
+      href="./assets/favicon/favicon-16x16.png"
+    />
+    <link rel="manifest" href="./assets/favicon/manifest.json" />
+    <meta name="msapplication-TileColor" content="#ffffff" />
+    <meta
+      name="msapplication-TileImage"
+      content="./assets/favicon/ms-icon-144x144.png"
+    />
+    <meta name="theme-color" content="#ffffff" />
+
+    <!-- Fonts -->
+    <link rel="stylesheet" href="./assets/fonts/stylesheet.css" />
+
+    <!-- Styles -->
+    <link rel="stylesheet" href="./assets/css/main.css" />
+
+    <!-- Scripts -->
+    <script src="./assets/js/scripts.js"></script>
+  </head>
+  <body>
+    <!-- Header -->
+    <%- include("./templates/header.ejs") %>
+    <!-- MAIN -->
+    <main class="checkout-page">
+      <div class="container">
+        <!-- Search bar -->
+        <div class="checkout-container">
+          <div class="search-bar d-none d-md-flex">
+            <input
+              type="text"
+              name=""
+              id=""
+              placeholder="Search for item"
+              class="search-bar__input"
+            />
+            <button class="search-bar__submit">
+              <img
+                src="./assets/icons/search.svg"
+                alt=""
+                class="search-bar__icon icon"
+              />
+            </button>
+          </div>
+        </div>
+
+        <!-- Breadcrumbs -->
+        <div class="checkout-container">
+          <ul class="breadcrumbs checkout-page__breadcrumbs">
+            <li>
+              <a href="./" class="breadcrumbs__link">
+                Trang chủ
+                <img src="./assets/icons/arrow-right.svg" alt="" />
+              </a>
+            </li>
+            <li>
+              <a href="#!" class="breadcrumbs__link breadcrumbs__link--current"
+                >Sản phẩm đã thích</a
+              >
+            </li>
+          </ul>
+        </div>
+
+        <!-- Checkout content -->
+        <div class="checkout-container">
+          <div class="row gy-xl-3">
+            <div class="col-12">
+              <div class="cart-info">
+                <h1 class="cart-info__heading">Sản phẩm đã thích</h1>
+                <p class="cart-info__desc"><%= fav_product_id.length %> sp </p>
+                <div class="cart-info__check-all">
+                  <label class="cart-info__checkbox">
+                    <input
+                      type="checkbox"
+                      name="shipping-adress"
+                      class="cart-info__checkbox-input"
+                    />
+                  </label>
+                </div>
+                <div class="cart-info__list">
+                  <!-- Cart item -->
+                  <% for (i = 0; i < fav_product_id.length; i++){%>
+                  <article class="cart-item">
+                    <label class="cart-info__checkbox">
+                      <input
+                        type="checkbox"
+                        name="shipping-adress"
+                        class="cart-info__checkbox-input"
+                        checked
+                      />
+                    </label>
+                    <a href="/product_detail?id= <%= fav_product_id[i] %>">
+                      <img
+                        src="<%= fav_product_img[i] %>"
+                        alt=""
+                        class="cart-item__thumb"
+                      />
+                    </a>
+                    <div class="cart-item__content">
+                      <div class="cart-item__content-left">
+                        <h3 class="cart-item__title">
+                          <a href="/product_detail?id= <%= fav_product_id[i] %>">
+                            <%= fav_product_name[i] %>
+                          </a>
+                        </h3>
+                        <p class="cart-item__price-wrap">
+                          <%= fav_product_price[i] %>
+                          <span class="cart-item__status">In Stock</span>
+                        </p>
+                        <div class="cart-item__ctrl-wrap">
+                          <div
+                            class="cart-item__ctrl cart-item__ctrl--md-block"
+                          >
+                            <div class="cart-item__input">
+                              Loại
+                              <img
+                                class="icon"
+                                src="./assets/icons/arrow-down-2.svg"
+                                alt=""
+                              />
+                            </div>
+                            <div class="cart-item__input">
+                              <button class="cart-item__input-btn" type="submit" data-product-id="<%= fav_product_id[i] %>" onclick="fav_product_minus(this); reloadPage()">
+                                <img
+                                  class="icon"
+                                  src="./assets/icons/minus.svg"
+                                  alt=""
+                                />
+                              </button>
+                              <span><%= fav_product_number[i] %></span>
+                              <button class="cart-item__input-btn" type="submit" data-product-id="<%= fav_product_id[i] %>" onclick="fav_product_plus(this); reloadPage()">
+                                <img
+                                  class="icon"
+                                  src="./assets/icons/plus.svg"
+                                  alt=""
+                                />
+                              </button>
+                            </div>
+                          </div>
+                          <div class="cart-item__ctrl">
+                            <button class="cart-item__ctrl-btn">
+                              <!-- <img src="./assets/icons/heart-2.svg" alt="" data-product-id="" onclick="fav_product(this)"/>
+                              Thích
+                            </button> -->
+                            <button
+                              class="cart-item__ctrl-btn js-toggle"
+                              toggle-target="#delete-confirm"
+                              data-product-id="<%= fav_product_id[i] %>" onclick="fav_product(this); reloadPage()"
+                            >
+                              <img src="./assets/icons/trash.svg" alt="" />
+                              Xoá
+                            </button>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="cart-item__content-right">
+                        <p class="cart-item__total-price"><%= fav_product_price_per_product[i] %></p>
+                      </div>
+                    </div>
+                  </article>
+                  <% } %>
+
+                </div>
+                <div class="cart-info__bottom">
+                  <div class="cart-info__row cart-info__row-md--block">
+                    <div class="cart-info__continue">
+                      <a href="./" class="cart-info__continue-link">
+                        <img
+                          class="cart-info__continue-icon icon"
+                          src="./assets/icons/arrow-down-2.svg"
+                          alt=""
+                        />
+                        Tiếp tục mua sắm
+                      </a>
+                    </div>
+                    <a
+                      href="/checkout"
+                      class="cart-info__checkout-all btn btn--primary btn--rounded"
+                    >
+                      Thanh toán
+                    </a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
+
+    <!-- Footer -->
+    <%- include("./templates/footer.ejs") %>
+
+    <!-- Modal: confirm remove shopping cart item -->
+    <div id="delete-confirm" class="modal modal--small hide">
+      <div class="modal__content">
+        <p class="modal__text">
+          Do you want to remove this item from shopping cart?
+        </p>
+        <div class="modal__bottom">
+          <button
+            class="btn btn--small btn--outline modal__btn js-toggle"
+            toggle-target="#delete-confirm"
+          >
+            Cancel
+          </button>
+          <button
+            class="btn btn--small btn--danger btn--primary modal__btn btn--no-margin js-toggle"
+            data-product-id="<%= fav_product_id[i] %>" onclick="fav_product(this)"
+            toggle-target="#delete-confirm"
+          >
+            Delete
+          </button>
+        </div>
+      </div>
+      <div
+        class="modal__overlay js-toggle"
+        toggle-target="#delete-confirm"
+      ></div>
+    </div>
+  </body>
+</html>

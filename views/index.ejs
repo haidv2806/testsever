@@ -1,0 +1,328 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Di động High-tech</title>
+
+    <!-- Favicon -->
+    <link
+      rel="apple-touch-icon"
+      sizes="57x57"
+      href="./assets/favicon/apple-icon-57x57.png"
+    />
+    <link
+      rel="apple-touch-icon"
+      sizes="60x60"
+      href="./assets/favicon/apple-icon-60x60.png"
+    />
+    <link
+      rel="apple-touch-icon"
+      sizes="72x72"
+      href="./assets/favicon/apple-icon-72x72.png"
+    />
+    <link
+      rel="apple-touch-icon"
+      sizes="76x76"
+      href="./assets/favicon/apple-icon-76x76.png"
+    />
+    <link
+      rel="apple-touch-icon"
+      sizes="114x114"
+      href="./assets/favicon/apple-icon-114x114.png"
+    />
+    <link
+      rel="apple-touch-icon"
+      sizes="120x120"
+      href="./assets/favicon/apple-icon-120x120.png"
+    />
+    <link
+      rel="apple-touch-icon"
+      sizes="144x144"
+      href="./assets/favicon/apple-icon-144x144.png"
+    />
+    <link
+      rel="apple-touch-icon"
+      sizes="152x152"
+      href="./assets/favicon/apple-icon-152x152.png"
+    />
+    <link
+      rel="apple-touch-icon"
+      sizes="180x180"
+      href="./assets/favicon/apple-icon-180x180.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="192x192"
+      href="./assets/favicon/android-icon-192x192.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="./assets/favicon/favicon-32x32.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="96x96"
+      href="./assets/favicon/favicon-96x96.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="16x16"
+      href="./assets/favicon/favicon-16x16.png"
+    />
+    <link rel="manifest" href="./assets/favicon/manifest.json" />
+    <meta name="msapplication-TileColor" content="#ffffff" />
+    <meta
+      name="msapplication-TileImage"
+      content="./assets/favicon/ms-icon-144x144.png"
+    />
+    <meta name="theme-color" content="#ffffff" />
+
+    <!-- Fonts -->
+    <link rel="stylesheet" href="./assets/fonts/stylesheet.css" />
+
+    <!-- Styles -->
+    <link rel="stylesheet" href="./assets/css/main.css" />
+
+    <!-- Scripts -->
+    <script src="./assets/js/scripts.js"></script>
+  </head>
+  <body>
+    <!-- Header -->
+    <%- include("./templates/header.ejs") %>
+
+    <!-- MAIN -->
+    <main class="container home">
+      <!-- Slideshow -->
+      <div class="home__container">
+        <div class="slideshow">
+          <div class="slideshow__inner">
+            <div class="slideshow__item">
+              <a href="#!" class="slideshow__link">
+                <picture>
+                  <source
+                    media="(max-width: 767.98px)"
+                    srcset="./assets/img/slideshow/item2.jpg"
+                  />
+                  <img
+                    src="./assets/img/slideshow/item2.jpg"
+                    alt=""
+                    class="slideshow__img"
+                  />
+                </picture>
+              </a>
+            </div>
+          </div>
+
+          <div class="slideshow__page">
+            <span class="slideshow__num">1</span>
+            <span class="slideshow__slider"></span>
+            <span class="slideshow__num">5</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Browse Categories -->
+      <section class="home__container">
+        <div class="home__row">
+          <h2 class="home__heading">DỊCH VỤ</h2>
+        </div>
+        <div class="home__cate row row-cols-1 row-cols-md-1">
+          <!-- Category item 1 -->
+          <div class="col">
+            <a href="#!">
+              <article class="cate-item">
+                <img
+                  src="./assets/icons/logo.png"
+                  alt=""
+                  class="cate-item__thumb"
+                />
+                <div class="cate-item__info">
+                  <h3 class="cate-item__title">Di động High-tech</h3>
+                  <p class="cate-item__desc">
+                    Hệ thống bán lẻ Di động High-tech chúng tôi là chuỗi cửa
+                    hàng chuyên cung cấp những mẫu điện thoại công nghệ cao hiện
+                    đại và uy tín nhất Việt Nam hiện nay
+                  </p>
+                </div>
+              </article>
+            </a>
+          </div>
+        </div>
+      </section>
+
+      <!-- Browse Products -->
+      <section class="home__container">
+        <div class="home__row">
+          <h2 class="home__heading">Sản Phẩm</h2>
+          <div class="filter-wrap">
+            <button class="filter-btn js-toggle" toggle-target="#home-filter" onclick="initJsToggle()">
+              Lọc
+              <img
+                src="./assets/icons/filter.svg"
+                alt=""
+                class="filter-btn__icon icon"
+              />
+            </button>
+
+            <div id="home-filter" class="filter hide">
+              <img
+                src="./assets/icons/arrow-up.png"
+                alt=""
+                class="filter__arrow"
+              />
+              <h3 class="filter__heading">Bộ lọc</h3>
+              <form action="/search" class="filter__form form" method="POST">
+                <div class="filter__row filter__content">
+                  <!-- Filter column 1 -->
+                  <div class="filter__col">
+                    <label for="" class="form__label">Khoảng giá</label>
+                    <div class="filter__form-group">
+                      <div
+                        class="filter__form-slider"
+                        style="--min-value: 10%; --max-value: 60%;"
+                      ></div>
+                    </div>
+                    <div class="filter__form-group filter__form-group--inline">
+                      <div>
+                        <label for="" class="form__label form__label--small">
+                          Từ
+                        </label>
+                        <div
+                          class="filter__form-text-input filter__form-text-input--small"
+                        >
+                          <input
+                            type="number"
+                            name="minPrice"
+                            id="minPrice"
+                            class="filter__form-input"
+                            placeholder="$15.00"
+                          />
+                        </div>
+                      </div>
+                      <div>
+                        <label for="" class="form__label form__label--small">
+                          Đến
+                        </label>
+                        <div
+                          class="filter__form-text-input filter__form-text-input--small"
+                        >
+                          <input
+                            type="number"
+                            name="maxPrice"
+                            id="maxPrice"
+                            class="filter__form-input"
+                            placeholder="$100.00"
+                          />
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="filter__separate"></div>
+
+                  <!-- Filter column 3 -->
+                  <div class="filter__col">
+                    <label for="" class="form__label">Loại</label>
+                    <div class="filter__form-group">
+                      <div class="filter__form-text-input">
+                        <input
+                          type="text"
+                          name="text"
+                          id=""
+                          placeholder="Tìm kiếm "
+                          class="filter__form-input"
+                        />
+                        <img
+                          src="./assets/icons/search.svg"
+                          alt=""
+                          class="filter__form-input-icon icon"
+                        />
+                      </div>
+                    </div>
+                    <div class="filter__form-group">
+                      <div class="form__tags">
+                        <button class="form__tag">iPhone</button>
+                        <button class="form__tag">Samsung</button>
+                        <button class="form__tag">Xiaomi</button>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="filter__row filter__footer">
+                  <button
+                    class="btn btn--text filter__cancel js-toggle"
+                    toggle-target="#home-filter"
+                  >
+                    Thoát
+                  </button>
+                  <button
+                    type="submit"
+                    class="btn btn--primary filter__submit js-toggle"
+                    toggle-target="#home-filter"
+                  >
+                    Tìm
+                  </button>
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+
+        <div class="row row-cols-3 row-cols-lg-2 row-cols-sm-1 g-2">
+          <!-- Product card -->
+          <% for(i = 0; i < product_id.length && i < 9; i++) { %>
+            <div class="col" >
+              <article class="product-card">
+                <div class="product-card__img-wrap" id="<%= product_id[i] %>">
+                  <a href="/product_detail?id= <%= product_id[i] %>" >
+                    <img
+                      src="<%= product_img[i] %>"
+                      alt=""
+                      class="product-card__thumb"
+                    />
+                  </a>
+                  <button class="like-btn <%= product_heart[i] %> product-card__like-btn" data-product-id="<%= product_id[i] %>" onclick="fav_product(this); reloadPage()">
+                    <img
+                      src="./assets/icons/heart.svg"
+                      alt=""
+                      class="like-btn__icon icon"
+                    />
+                    <img
+                      src="./assets/icons/heart-red.svg"
+                      alt=""
+                      class="like-btn__icon--liked"
+                    />
+                  </button>
+                </div>
+                <h3 class="product-card__title">
+                  <a href="/product_detail?id=<%= product_id[i] %>"
+                    ><%= product_name[i] %></a
+                  >
+                </h3>
+                <p class="product-card__brand"><%= product_brand[i] %></p>
+                <div class="product-card__row">
+                  <span class="product-card__price"><%= product_price[i] %></span>
+                  <img
+                    src="./assets/icons/star.svg"
+                    alt=""
+                    class="product-card__star"
+                  />
+                  <span class="product-card__score">4.3</span>
+                </div>
+              </article>
+          </div>
+      <% } %>
+        </div>
+      </section>
+    </main>
+
+    <!-- Footer -->
+    <%- include("./templates/footer.ejs") %>
+  </body>
+</html>

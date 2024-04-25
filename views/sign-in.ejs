@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Đăng nhập | Di động High-tech</title>
+
+    <!-- Favicon -->
+    <link
+      rel="apple-touch-icon"
+      sizes="57x57"
+      href="./assets/favicon/apple-icon-57x57.png"
+    />
+    <link
+      rel="apple-touch-icon"
+      sizes="60x60"
+      href="./assets/favicon/apple-icon-60x60.png"
+    />
+    <link
+      rel="apple-touch-icon"
+      sizes="72x72"
+      href="./assets/favicon/apple-icon-72x72.png"
+    />
+    <link
+      rel="apple-touch-icon"
+      sizes="76x76"
+      href="./assets/favicon/apple-icon-76x76.png"
+    />
+    <link
+      rel="apple-touch-icon"
+      sizes="114x114"
+      href="./assets/favicon/apple-icon-114x114.png"
+    />
+    <link
+      rel="apple-touch-icon"
+      sizes="120x120"
+      href="./assets/favicon/apple-icon-120x120.png"
+    />
+    <link
+      rel="apple-touch-icon"
+      sizes="144x144"
+      href="./assets/favicon/apple-icon-144x144.png"
+    />
+    <link
+      rel="apple-touch-icon"
+      sizes="152x152"
+      href="./assets/favicon/apple-icon-152x152.png"
+    />
+    <link
+      rel="apple-touch-icon"
+      sizes="180x180"
+      href="./assets/favicon/apple-icon-180x180.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="192x192"
+      href="./assets/favicon/android-icon-192x192.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="./assets/favicon/favicon-32x32.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="96x96"
+      href="./assets/favicon/favicon-96x96.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="16x16"
+      href="./assets/favicon/favicon-16x16.png"
+    />
+    <link rel="manifest" href="./assets/favicon/manifest.json" />
+    <meta name="msapplication-TileColor" content="#ffffff" />
+    <meta
+      name="msapplication-TileImage"
+      content="./assets/favicon/ms-icon-144x144.png"
+    />
+    <meta name="theme-color" content="#ffffff" />
+
+    <!-- Fonts -->
+    <link rel="stylesheet" href="./assets/fonts/stylesheet.css" />
+
+    <!-- Styles -->
+    <link rel="stylesheet" href="./assets/css/main.css" />
+
+    <!-- Scripts -->
+    <script src="./assets/js/scripts.js"></script>
+  </head>
+  <body>
+    <main class="auth">
+      <!-- Auth intro -->
+      <div class="auth__intro d-md-none">
+        <img
+          src="./assets/img/auth/3772684.jpg"
+          alt=""
+          class="auth__intro-img"
+        />
+      </div>
+
+      <!-- Auth content -->
+      <div class="auth__content">
+        <div class="auth__content-inner">
+          <a href="/" class="logo">
+            <img
+              src="./assets/icons/logo.png"
+              alt="didong2tech"
+              class="logo__img"
+            />
+            <h2 class="logo__title">DI ĐỘNG HIGH-TECH</h2>
+          </a>
+          <h1 class="auth__heading">WELCOME BACK!</h1>
+          <p class="auth__desc">
+            Chào mừng bạn trở lại với Di động High-tech. <br />
+            Vui lòng đăng nhập để tiếp tục.
+          </p>
+          <form action="/sign_in" class="form auth__form" method="POST">
+            <div class="form__group">
+              <div class="form__text-input">
+                <input
+                  type="email"
+                  name="username"
+                  id=""
+                  placeholder="Email"
+                  class="form__input"
+                  autofocus
+                  required
+                />
+                <img
+                  src="./assets/icons/message.svg"
+                  alt=""
+                  class="form__input-icon"
+                />
+                <img
+                  src="./assets/icons/form-error.svg"
+                  alt=""
+                  class="form__input-icon-error"
+                />
+              </div>
+              <p class="form__error">
+                Email chưa đúng định dạng (username@email.com)
+              </p>
+            </div>
+            <div class="form__group">
+              <div class="form__text-input">
+                <input
+                  type="password"
+                  name="password"
+                  id=""
+                  placeholder="Mật khẩu"
+                  class="form__input"
+                  required
+                  minlength="6"
+                />
+                <img
+                  src="./assets/icons/lock.svg"
+                  alt=""
+                  class="form__input-icon"
+                />
+                <img
+                  src="./assets/icons/form-error.svg"
+                  alt=""
+                  class="form__input-icon-error"
+                />
+              </div>
+              <p class="form__error">Mật khẩu phải dài hơn 6 kí tự</p>
+            </div>
+            <div class="form__group form__group--inline">
+              <label class="form__checkbox">
+                <input
+                  type="checkbox"
+                  name="checkbox"
+                  id=""
+                  class="form__checkbox-input d-none"
+                />
+                <span class="form__checkbox-label">Ghi nhớ đăng nhập</span>
+              </label>
+              <a
+                href="/reset-password"
+                class="auth__link form__pull-right"
+                >Quên mật khẩu?</a
+              >
+            </div>
+            <div class="form__group auth__btn-group">
+              <button class="btn btn--primary auth__btn form__submit-btn">
+                Đăng nhập
+              </button>
+              <a href="/auth/google" role="button" class="btn btn--outline auth__btn btn--no-margin">
+                <!-- <button class="btn btn--outline auth__btn btn--no-margin"> -->
+                  <img
+                    src="./assets/icons/google.svg"
+                    alt=""
+                    class="btn__icon icon"
+                  />
+                  Đăng nhập với Google
+                <!-- </button> -->
+              </a>
+            </div>
+          </form>
+
+          <p class="auth__text">
+            Chưa có tài khoản?
+            <a href="/sign_up" class="auth__link auth__text-link"
+              >Đăng ký</a
+            >
+          </p>
+        </div>
+      </div>
+    </main>
+    <script>
+      window.dispatchEvent(new Event("template-loaded"));
+    </script>
+  </body>
+</html>
