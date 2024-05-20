@@ -10,7 +10,7 @@ import { Document } from "docxyz";
 import mammoth from "mammoth";
 // import { text } from "body-parser";
 const app = express();
-const port = 3000;
+const port = 5000;
 app.use(express.static("public"));
 app.use(express.json())
 app.use(express.urlencoded({extended: false}))

@@ -16,7 +16,7 @@ import WordExtractor from"word-extractor"
 
 // sử dụng express, tạo cổng, tạo số lần sử dụng bcrypt, kết nối .evn
 const app = express();
-const port = 3000;
+const port = 5000;
 const saltRounds = 10;
 env.config();
 
