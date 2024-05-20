@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Đặt lại mật khẩu | Di động High-tech</title>
+    <title>Trang Quản Trị | Di động High-tech</title>
 
     <!-- Favicon -->
     <link
@@ -87,50 +87,31 @@
     <link rel="stylesheet" href="./assets/fonts/stylesheet.css" />
 
     <!-- Styles -->
-    <link rel="stylesheet" href="./assets/css/main.css" />
+    <link rel="stylesheet" href="./assets/css/signin.css" />
 
     <!-- Scripts -->
     <script src="./assets/js/scripts.js"></script>
   </head>
   <body>
     <main class="auth">
-      <!-- Auth intro -->
-      <div class="auth__intro d-md-none">
-        <img
-          src="./assets/img/auth/forgot-password.png"
-          alt=""
-          class="auth__intro-img"
-        />
-      </div>
-
       <!-- Auth content -->
       <div class="auth__content">
         <div class="auth__content-inner">
           <a href="./" class="logo">
             <img
-              src="./assets/icons/logo.svg"
+              src="./assets/icons/logo.png"
               alt="didong2tech"
               class="logo__img"
             />
-            <h2 class="logo__title">Di động High-tech</h2>
+            <h2 class="logo__title">DI ĐỘNG HIGH-TECH</h2>
           </a>
-          <h1 class="auth__heading">Đặt lại mật khẩu</h1>
-          <p class="auth__desc">
-            Nhập email đã đăng ký tài khoản, chúng tôi sẽ một liên kết đặt lại
-            mật khẩu qua email đã nhập
-          </p>
-          <div class="auth__message message message--success">
-            Chúng tôi đã gửi liên kết đặt lại mật khẩu đến email của bạn!
-          </div>
-          <form
-            action="./reset-password-emailed.html"
-            class="form auth__form auth__form-forgot"
-          >
+          <h1 class="auth__heading">TRANG QUẢN TRỊ</h1>
+          <form action="/webadmin_dang_nhap" class="form auth__form" method="post">
             <div class="form__group">
               <div class="form__text-input">
                 <input
                   type="email"
-                  name=""
+                  name="username"
                   id=""
                   placeholder="Email"
                   class="form__input"
@@ -148,27 +129,40 @@
                   class="form__input-icon-error"
                 />
               </div>
-              <p class="form__error">
-                Email chưa đúng định dạng (username@email.com)
-              </p>
+              <p class="form__error">định dạng (username@email.com)</p>
+            </div>
+            <div class="form__group">
+              <div class="form__text-input">
+                <input
+                  type="password"
+                  name="password"
+                  id=""
+                  placeholder="Mật khẩu"
+                  class="form__input"
+                  required
+                  minlength="6"
+                />
+                <img
+                  src="./assets/icons/lock.svg"
+                  alt=""
+                  class="form__input-icon"
+                />
+                <img
+                  src="./assets/icons/form-error.svg"
+                  alt=""
+                  class="form__input-icon-error"
+                />
+              </div>
+              <p class="form__error">Mật khẩu phải dài hơn 6 kí tự</p>
             </div>
             <div class="form__group auth__btn-group">
-              <button class="btn btn--primary auth__btn form__submit-btn">
-                Xác nhận
-              </button>
+                <button class="btn btn--primary auth__btn form__submit-btn">
+                  Đăng nhập
+                </button>
             </div>
           </form>
-
-          <p class="auth__text">
-            <a href="./new-password.html" class="auth__link auth__text-link"
-              >Quay lại đăng nhập</a
-            >
-          </p>
         </div>
       </div>
     </main>
-    <script>
-      window.dispatchEvent(new Event("template-loaded"));
-    </script>
   </body>
 </html>

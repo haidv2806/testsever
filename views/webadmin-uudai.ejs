@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Trang Quản Trị | Di động High-tech</title>
+    <link rel="stylesheet" href="./assets/css/webadmin.css" />
+  </head>
+  <body>
+    <div class="admin-header">
+      <div class="left-panel">
+        <p>Xin Chào <span>Admin</span></p>
+      </div>
+      <div class="right-panel">
+        <a href="/webadmin_home">
+          <img src="./assets/img/house.png" alt="" class="icon" />Trang chủ
+        </a>
+        <a href="/webadmin_dangnhap">
+          <img src="./assets/img/logout.png" alt="" class="icon" />Đăng xuất
+        </a>
+      </div>
+    </div>
+    <div class="content">
+      <div class="container">
+        <div class="left-menu">
+          <div class="menu-heading">Admin menu</div>
+          <div class="menu-items">
+            <ul>
+              <li><a href="/webadmin_home">Đơn Hàng</a></li>
+              <li><a href="/webadmin_tonkho">Hàng Tồn</a></li>
+              <li>
+                <a href="/webadmin_uudai">Danh sách mail được nhận ưu đãi</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+        <div id="main-content-uudai">
+          <h1 class="card-h1">Danh sách mail nhận ưu đãi</h1>
+          <div class="mail-items">
+            <div class="buttons">
+              <a href="#" onclick="Mail_Table()">Thêm mail</a>
+            </div>
+          </div>
+          <div id="mail-table" class="mail-table">
+            <ul>
+              <li class="mail-table-heading">
+                <div class="tdm">Tên Mail</div>
+                <div class="tdm">Ưu đãi nhận được(%)</div>
+                <div class="tdm">Hủy</div>
+                <div class="tdm">Đồng ý</div>
+              </li>
+              <form action="/add_sale" method="post">
+              <li class="mtable">
+                <div class="tdme">
+                  <input
+                    type="text"
+                    name="email"
+                    placeholder="mail_@gmail.com"
+                  />
+                </div>
+                <div class="tdme">
+                  <input type="number" name="sale" placeholder="20" />
+                </div>
+                <div class="tdme">
+                  <input type="button" value="Hủy" />
+                </div>
+                  <button>đồng ý</button>
+              </li>
+            </form>
+            </ul>
+          </div>
+          <div class="mail-items">
+            <ul>
+              <li class="mail-items-heading">
+                <div class="pro">ID</div>
+                <div class="pro">Tên mail</div>
+                <div class="pro">Ưu đãi(%)</div>
+                <div class="pro">Sửa</div>
+                <div class="pro">Xóa</div>
+              </li>
+              <% for (i = 0; i < user_id.length; i++) {%>
+              <li class="mail-item">
+                <div class="prod"><%= user_id[i] %></div>
+                <div class="prod"><%= email[i] %></div>
+                <div class="prod"><%= sale[i] %></div>
+                <div class="prod"><a href="#">Sửa</a></div>
+                <div class="prod"><a href="#">Xóa</a></div>
+              </li>
+              <% } %>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+    <script>
+      function Mail_Table() {
+        var proTable = document.getElementById("mail-table");
+        if (proTable.style.display == "none") proTable.style.display = "block";
+        else proTable.style.display = "none";
+      }
+    </script>
+  </body>
+</html>

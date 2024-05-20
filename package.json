@@ -1,5 +1,5 @@
 {
-  "name": "f8-project-08",
+  "name": "smartphone",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
@@ -7,8 +7,7 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "nodemon index.js",
-    "sass": "node-sass -w sass/ -o css/",
-    "compile": "sass public/scss/main.scss public/assets/css/main.css"
+    "sass": "sass public/scss:public/assets/css -w"
   },
   "keywords": [],
   "author": "",
@@ -16,15 +15,23 @@
   "dependencies": {
     "bcrypt": "^5.1.1",
     "body-parser": "^1.20.2",
+    "docxyz": "^0.2.4",
     "dotenv": "^16.3.1",
     "ejs": "^3.1.9",
     "express": "^4.18.2",
     "express-session": "^1.17.3",
     "jsdom": "^24.0.0",
+    "line-by-line": "^0.1.6",
+    "mammoth": "^1.7.2",
+    "multer": "^1.4.5-lts.1",
+    "node-stream-zip": "^1.15.0",
+    "nodemailer": "^6.9.13",
     "nodemon": "^3.1.0",
     "passport": "^0.7.0",
     "passport-google-oauth2": "^0.2.0",
     "passport-local": "^1.0.0",
-    "pg": "^8.11.3"
+    "pg": "^8.11.3",
+    "word-extractor": "^1.0.4",
+    "xml2js": "^0.6.2"
   }
 }

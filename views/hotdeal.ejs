@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <!-- Favicon -->
+      <link
+      rel="apple-touch-icon"
+      sizes="76x76"
+      href="./assets/favicon/apple-touch-icon.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="./assets/favicon/favicon-32x32.png"  
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="16x16"
+      href="./assets/favicon/favicon-16x16.png"
+    />
+    <link rel="manifest" href="assets/favicon/webmanifest.json" />
+    <meta name="msapplication-TileColor" content="#da532c" />    
+    <meta name="theme-color" content="#ffffff" />
+    
+    <!-- Fonts -->
+    <link rel="stylesheet" href="assets/fonts/stylesheet.css" />
+
+    <!-- Styles -->
+    <link rel="stylesheet" href="assets/css/hotdeal.css">
+    <link rel="stylesheet" href="assets/css/main.css">
+     <!-- Scripts -->
+     <script src="./assets/js/scripts.js"></script>
+     <title>Hot Deal</title>
+
+</head>
+<body>
+  <%- include("./templates/header.ejs") %>
+  <div class="album py-5 bg-body-tertiary capnhatt">
+    <div class="container container_Hop">
+      <div class="header-update">
+        <div class="header-update-container">
+          <h1 class="card-h1"><i>KHUYẾN MÃI</i></h1>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col">
+          <a href="/hotdeal_child_iphone">
+            <div class="card shadow-sm">
+              <img class="card-img" src="./assets/img/hotdeal/dealcuccang.png" focusable="false"></img>
+              <div class="card-body">
+                <h3 class="card-h3"><b>Deal "CỰC CĂNG" săn ngay kẻo lỡ - Giảm sốc lên tới 50% cùng nhiều phần quà giá trị</b></h3>
+              </div>
+            </div>
+          </a>
+        </div>
+       <div class="col">
+          <a href="/hotdeal_child_oppo">
+            <div class="card shadow-sm">
+              <img class="card-img" src="./assets/img/hotdeal/dtchinhhang.png" focusable="false"></img>
+              <div class="card-body">
+                <h3 class="card-h3"><b>Mua điện thoại Oppo, Nhận ngay bảo hành chính hãng lên tới hơn 1 năm</b></h3>
+              </div>
+            </div>
+          </a>
+        </div>
+        <div class="col">
+          <a href="/hotdeal_child_samsung">
+            <div class="card shadow-sm">
+              <img class="card-img" src="./assets/img/hotdeal/samsungtragop.png" focusable="false"></img>  
+              <div class="card-body">
+                <h3 class="card-h3"><b>Tuần lễ thương hiệu SAMSUNG: trả góp 0%, nhiều quà hấp dẫn</b></h3>
+              </div>
+            </div>
+          </a>
+        </div>
+        <div class="col">
+          <a href="/hotdeal_child_xiaomi">
+            <div class="card shadow-sm">
+              <img class="card-img" src="./assets/img/hotdeal/xiaomikm.png" focusable="false"></img> 
+              <div class="card-body">
+                <h3 class="card-h3"><b>Siêu khuyến mại XiaoMi - Quà tặng lên tới 2.000.000Đ</b></h3>
+              </div>
+            </div>
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+<%- include("./templates/footer.ejs") %>
+</body>
+</html>

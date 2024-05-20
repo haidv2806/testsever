@@ -106,11 +106,11 @@
               <a href="#!" class="slideshow__link">
                 <picture>
                   <source
-                    media="(max-width: 767.98px)"
+                    media="(max-width: 100px)"
                     srcset="./assets/img/slideshow/item2.jpg"
                   />
                   <img
-                    src="./assets/img/slideshow/item2.jpg"
+                    src="./assets/img/index/index-apple.jpg"
                     alt=""
                     class="slideshow__img"
                   />
@@ -161,7 +161,11 @@
         <div class="home__row">
           <h2 class="home__heading">Sản Phẩm</h2>
           <div class="filter-wrap">
-            <button class="filter-btn js-toggle" toggle-target="#home-filter" onclick="initJsToggle()">
+            <button
+              class="filter-btn js-toggle"
+              toggle-target="#home-filter"
+              onclick="initJsToggle()"
+            >
               Lọc
               <img
                 src="./assets/icons/filter.svg"
@@ -182,12 +186,12 @@
                   <!-- Filter column 1 -->
                   <div class="filter__col">
                     <label for="" class="form__label">Khoảng giá</label>
-                    <div class="filter__form-group">
+                    <!-- <div class="filter__form-group">
                       <div
                         class="filter__form-slider"
                         style="--min-value: 10%; --max-value: 60%;"
                       ></div>
-                    </div>
+                    </div> -->
                     <div class="filter__form-group filter__form-group--inline">
                       <div>
                         <label for="" class="form__label form__label--small">
@@ -277,47 +281,51 @@
         <div class="row row-cols-3 row-cols-lg-2 row-cols-sm-1 g-2">
           <!-- Product card -->
           <% for(i = 0; i < product_id.length && i < 9; i++) { %>
-            <div class="col" >
-              <article class="product-card">
-                <div class="product-card__img-wrap" id="<%= product_id[i] %>">
-                  <a href="/product_detail?id= <%= product_id[i] %>" >
-                    <img
-                      src="<%= product_img[i] %>"
-                      alt=""
-                      class="product-card__thumb"
-                    />
-                  </a>
-                  <button class="like-btn <%= product_heart[i] %> product-card__like-btn" data-product-id="<%= product_id[i] %>" onclick="fav_product(this); reloadPage()">
-                    <img
-                      src="./assets/icons/heart.svg"
-                      alt=""
-                      class="like-btn__icon icon"
-                    />
-                    <img
-                      src="./assets/icons/heart-red.svg"
-                      alt=""
-                      class="like-btn__icon--liked"
-                    />
-                  </button>
-                </div>
-                <h3 class="product-card__title">
-                  <a href="/product_detail?id=<%= product_id[i] %>"
-                    ><%= product_name[i] %></a
-                  >
-                </h3>
-                <p class="product-card__brand"><%= product_brand[i] %></p>
-                <div class="product-card__row">
-                  <span class="product-card__price"><%= product_price[i] %></span>
+          <div class="col">
+            <article class="product-card">
+              <div class="product-card__img-wrap" id="<%= product_id[i] %>">
+                <a href="/product_detail?id= <%= product_id[i] %>">
                   <img
-                    src="./assets/icons/star.svg"
+                    src="<%= product_img[i] %>"
                     alt=""
-                    class="product-card__star"
+                    class="product-card__thumb"
                   />
-                  <span class="product-card__score">4.3</span>
-                </div>
-              </article>
+                </a>
+                <button
+                  class="like-btn <%= product_heart[i] %> product-card__like-btn"
+                  data-product-id="<%= product_id[i] %>"
+                  onclick="fav_product(this); reloadPage()"
+                >
+                  <img
+                    src="./assets/icons/heart.svg"
+                    alt=""
+                    class="like-btn__icon icon"
+                  />
+                  <img
+                    src="./assets/icons/heart-red.svg"
+                    alt=""
+                    class="like-btn__icon--liked"
+                  />
+                </button>
+              </div>
+              <h3 class="product-card__title">
+                <a href="/product_detail?id=<%= product_id[i] %>"
+                  ><%= product_name[i] %></a
+                >
+              </h3>
+              <p class="product-card__brand"><%= product_brand[i] %></p>
+              <div class="product-card__row">
+                <span class="product-card__price"><%= product_price[i] %></span>
+                <img
+                  src="./assets/icons/star.svg"
+                  alt=""
+                  class="product-card__star"
+                />
+                <span class="product-card__score">4.3</span>
+              </div>
+            </article>
           </div>
-      <% } %>
+          <% } %>
         </div>
       </section>
     </main>

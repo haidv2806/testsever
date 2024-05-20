@@ -94,10 +94,7 @@
   </head>
   <body>
     <!-- Header -->
-    <header id="header" class="header"></header>
-    <script>
-      load("#header", "./templates/header-logined.html");
-    </script>
+    <%- include("./templates/header.ejs") %>
 
     <!-- MAIN -->
     <main class="profile">
@@ -130,11 +127,11 @@
                 <!-- User -->
                 <div class="profile-user">
                   <img
-                    src="./assets/img/avatar/avatar.jpg"
+                    src="<%= picture %>"
                     alt=""
                     class="profile-user__avatar"
                   />
-                  <h1 class="profile-user__name">Lee Sang-hyeok</h1>
+                  <h1 class="profile-user__name"><%= user_name %></h1>
                   <p class="profile-user__desc">Tham gia: 20th3 2024</p>
                 </div>
 
@@ -201,7 +198,7 @@
                       </a>
                     </li>
                     <li>
-                      <a href="checkout.html" class="profile-menu__link">
+                      <a href="/checkout" class="profile-menu__link">
                         <span class="profile-menu__icon">
                           <img
                             src="./assets/icons/heart.svg"
@@ -232,7 +229,7 @@
                   <h3 class="profile-menu__title">Bảo mật</h3>
                   <ul class="profile-menu__list">
                     <li>
-                      <a href="#!" class="profile-menu__link">
+                      <a href="/new_password" class="profile-menu__link">
                         <span class="profile-menu__icon">
                           <img
                             src="./assets/icons/shield.svg"
@@ -240,7 +237,7 @@
                             class="icon"
                           />
                         </span>
-                        Mật khẩu
+                        Đổi Mật khẩu
                       </a>
                     </li>
                   </ul>
@@ -251,7 +248,7 @@
                   <h3 class="profile-menu__title">Dịch vụ khách hàng</h3>
                   <ul class="profile-menu__list">
                     <li>
-                      <a href="#!" class="profile-menu__link">
+                      <a href="https://web.facebook.com/profile.php?id=100038113581488" class="profile-menu__link">
                         <span class="profile-menu__icon">
                           <img
                             src="./assets/icons/info.svg"
@@ -390,7 +387,7 @@
                             <div>
                               <h3 class="account-info__title">Email</h3>
                               <p class="account-info__desc">
-                                faker@sktelecom.com
+                                <%=  email %>
                               </p>
                             </div>
                           </article>
@@ -411,7 +408,7 @@
                             <div>
                               <h3 class="account-info__title">Điện thoại</h3>
                               <p class="account-info__desc">
-                                09 09 09 09 09
+                                <%=  phone_number[0] %>
                               </p>
                             </div>
                           </article>
@@ -434,7 +431,7 @@
                                 Địa chỉ
                               </h3>
                               <p class="account-info__desc">
-                                Seoul, Korea
+                                <%= district_address %>
                               </p>
                             </div>
                           </article>
@@ -451,10 +448,7 @@
     </main>
 
     <!-- Footer -->
-    <footer id="footer" class="footer"></footer>
-    <script>
-      load("#footer", "./templates/footer.html");
-    </script>
+    <%- include("./templates/footer.ejs") %>
 
     
     </div>

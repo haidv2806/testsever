@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Trang Quản Trị | Di động High-tech</title>
+    <link rel="stylesheet" href="./assets/css/webadmin.css" />
+  </head>
+  <body>
+    <div class="admin-header">
+      <div class="left-panel">
+        <p>Xin Chào <span>Admin</span></p>
+      </div>
+      <div class="right-panel">
+        <a href="/webadmin_home">
+          <img src="./assets/img/house.png" alt="" class="icon" />Trang chủ
+        </a>
+        <a href="/webadmin_dangnhap">
+          <img src="./assets/img/logout.png" alt="" class="icon" />Đăng xuất
+        </a>
+      </div>
+    </div>
+    <div class="content">
+      <div class="container">
+        <div class="left-menu">
+          <div class="menu-heading">Admin menu</div>
+          <div class="menu-items">
+            <ul>
+              <li><a href="/webadmin_home">Đơn Hàng</a></li>
+              <li><a href="/webadmin_tonkho">Hàng Tồn</a></li>
+              <li>
+                <a href="/webadmin_uudai">Danh sách mail được nhận ưu đãi</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+        <div id="main-content-tonkho">
+          <h1 class="card-h1">Danh sách sản phẩm tồn kho</h1>
+          <div class="product-items">
+            <div class="buttons">
+              <a href="#" onclick="ProTable_Tonkho()">Thêm sản phẩm</a>
+            </div>
+          </div>
+          <div id="products-ton" class="products-ton">
+            <ul>
+              <li class="product-ton-heading">
+                <div class="pro">Ảnh 1</div>
+                <div class="pro">Ảnh 2</div>
+                <div class="pro">Ảnh 3</div>
+                <div class="pro">Ảnh 4</div>
+                <div class="pro">Hãng</div>
+                <div class="pro">Loại sản phẩm</div>
+                <div class="pro">Tên sản phẩm</div>
+                <div class="pro">Giá</div>
+                <div class="pro">Mô tả</div>
+                <div class="pro">Đồng ý</div>
+              </li>
+              <form action="/add_product" method="post" enctype="multipart/form-data">
+              <li class="product-ton">
+                <div class="prod">
+                  <input type="text" name="image_upload_1" />
+                </div>
+                <div class="prod">
+                  <input type="text" name="image_upload_2" />
+                </div>
+                <div class="prod">
+                  <input type="text" name="image_upload_3" />
+                </div>
+                <div class="prod">
+                  <input type="text" name="image_upload_4" />
+                </div>
+                <div class="prod">
+                  <input type="text" name="product_brand" placeholder="Brand" required />
+                </div>
+                <div class="prod">
+                  <input type="text" name="product_type" placeholder="Type" required />
+                </div>
+                <div class="prod">
+                  <input type="text" name="product_name" placeholder="Name" required />
+                </div>
+                <div class="prod">
+                  <input type="text" name="price" placeholder="100000" required/>
+                </div>
+                <div class="prod">
+                  <input type="file" name="description" accept=".docx" required />
+                </div>
+                <div class="prod">
+                  <button> đồng ý</button>
+                  <!-- <input type="button" value="Đồng ý" /> -->
+                </div>
+              </li>
+            </form>
+            </ul>
+          </div>
+          <div class="product-items">
+            <ul>
+              <li class="product-items-heading">
+                <div class="pro">Ảnh</div>
+                <div class="pro">Hãng</div>
+                <div class="pro">Loại sản phẩm</div>
+                <div class="pro">Tên sản phẩm</div>
+                <div class="pro">Giá</div>
+                <div class="pro">Mô tả</div>
+                <div class="pro">Sửa</div>
+                <div class="pro">Xóa</div>
+              </li>
+              <% for (i = 0; i < product_id.length && i < 10; i++) {%>
+              <li class="product-item">
+                <img
+                  src="<%= product_img1[i] %>"
+                  alt=""
+                />
+                <div class="prod"><%= product_brand[i] %></div>
+                <div class="prod"><%= product_series[i] %></div>
+                <div class="prod"><%= product_name[i] %></div>
+                <div class="prod"><%= product_price[i] %></div>
+                <div class="prod"><%= product_description[i] %></div>
+                <div class="prod"><a href="#">Sửa</a></div>
+                <div class="prod"><a href="/delete_product?id=<%= product_id[i] %>">Xóa</a></div>
+              </li>
+              <% } %>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+    <script>
+      function ProTable_Tonkho() {
+        var proTable = document.getElementById("products-ton");
+        if (proTable.style.display == "none") proTable.style.display = "block";
+        else proTable.style.display = "none";
+      }
+    </script>
+  </body>
+</html>

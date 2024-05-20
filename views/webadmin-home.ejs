@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Trang Quản Trị | Di động High-tech</title>
+    <link rel="stylesheet" href="./assets/css/webadmin.css" />
+  </head>
+  <body>
+    <div class="admin-header">
+      <div class="left-panel">
+        <p>Xin Chào <span>Admin</span></p>
+      </div>
+      <div class="right-panel">
+        <a href="/webadmin_home">
+          <img src="./assets/img/house.png" alt="" class="icon" />Trang chủ
+        </a>
+        <a href="/webadmin_dangnhap">
+          <img src="./assets/img/logout.png" alt="" class="icon" />Đăng xuất
+        </a>
+      </div>
+    </div>
+    <div class="content">
+      <div class="container">
+        <div class="left-menu">
+          <div class="menu-heading">Admin menu</div>
+          <div class="menu-items">
+            <ul>
+              <li><a href="/webadmin_home">Đơn Hàng</a></li>
+              <li><a href="/webadmin_tonkho">Hàng Tồn</a></li>
+              <li>
+                <a href="/webadmin_uudai">Danh sách mail được nhận ưu đãi</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+        <div id="main-content-uudai">
+          <div class="mail-items">
+            <ul>
+              <li class="mail-items-heading">
+                <div class="pro">mã đơn</div>
+                <div class="pro">mail người mua</div>
+                <div class="pro">sản phẩm mua</div>
+                <div class="pro">ngày đặt mua</div>
+                <div class="pro">giá trị đơn</div>
+                <div class="pro">số điện thoại</div>
+                <div class="pro">địa chỉ khu vực</div>
+                <div class="pro">địa chỉ nhà</div>
+                <div class="pro">trạng thái</div>
+              </li>
+              <% for (i = 0; i < orderid.length; i++) {%>
+              <li class="mail-item">
+                <div class="prod"><%= orderid[i] %></div>
+                <div class="prod"><%= email[i] %></div>
+                <div class="prod"><%= order_product[i] %></div>
+                <div class="prod"><%= order_date[i] %></div>
+                <div class="prod"><%= totalamount[i]%></div>
+                <div class="prod"><%= phone_number[i] %></div>
+                <div class="prod"><%= district_address[i] %></div>
+                <div class="prod"><%= home_address[i] %></div>
+                <div class="prod"><%= status[i] %></div>
+              </li>
+            <% } %>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

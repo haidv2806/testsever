@@ -193,3 +193,8 @@
     }
   }
 }
+
+.menu-column__item--active .sub-menu,
+.menu-column__item:hover .sub-menu {
+  display: grid;
+}

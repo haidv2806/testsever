@@ -2,8 +2,9 @@ CREATE TABLE users(
     userid SERIAL PRIMARY KEY,
     email VARCHAR(100) NOT NULL UNIQUE,
     password VARCHAR(100) NOT NULL,
-    displayname VARCHAR(50),
-    picture VARCHAR (100)
+    displayname VARCHAR(50) NOT NULL,
+    picture VARCHAR (100) NOT NULL,
+    usersale INT NOT NULL
 );
 
 CREATE TABLE product(
@@ -41,27 +42,14 @@ CREATE TABLE user_address (
     homeaddress VARCHAR(50) NOT Null
 );
 
-select product.productid, product.image, product.brand, product.name, product.price
-from user_fav
-            inner join product on user_fav.productid = product.productid
-            inner join users on user_fav.userid = users.userid
-where user_fav.userid = 1
-
-SELECT *  FROM product 
-WHERE price BETWEEN 0 AND 20000000
-AND UPPER(brand) like UPPER('%iPHone%')
-
-UPDATE user_fav 
-SET number = number + 1 
-WHERE productid = $1
-AND userid = $2
-
-SELECT *
-FROM user_fav 
-WHERE userid = $1
-AND productid = $2
-
-DELETE
-FROM user_fav
-WHERE userid = $1
-AND productid = $2
+CREATE TABLE Orders (
+    OrderID SERIAL PRIMARY KEY,
+    useremail VARCHAR(50) NOT NULL,
+    orderproduct VARCHAR (100) NOT NULL,
+    OrderDate VARCHAR (50) NOT NULL,
+    TotalAmount INT NOT NULL,
+    phonenumber INT NOT NULL,
+    districtaddress VARCHAR(150) NOT NULL,
+    homeaddress VARCHAR(150)NOT NULL,
+    Status VARCHAR(150) not NULL
+);

@@ -1,0 +1,120 @@
+.header-update {
+  padding-top: 50px;
+  width: 100%;
+}
+.header-update .header-update-container {
+  padding: 20px 30px;
+  background-color: white;
+  border-radius: 0 75px 0 0;
+}
+.album .container_Hop .row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: auto;
+}
+.card-h1 {
+  line-height: 60px;
+  font-size: 30px;
+  font-family: serif;
+  font-weight: bold;
+}
+.card-body {
+  margin: 10px;
+  padding: 10px;
+}
+.card-h3 {
+  font-size: 22px;
+  margin-bottom: 14px;
+}
+.card-img {
+  width: 100%;
+  height: 350px;
+}
+.row .col {
+  padding: 30px;
+}
+.container_detail {
+  display: grid;
+  grid-template-columns: 3fr 1fr; /* 7 parts for left, 3 parts for right */
+  gap: 20px;
+  padding-left: 30px;
+  padding-top: 30px;
+  margin-bottom: 50px;
+  background-color: white;
+}
+.bigtit h1 {
+  font-size: 24px;
+}
+.smalltitimg img {
+  width: 70%;
+  height: 400px;
+  margin-left: 100px;
+  margin-right: auto;
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+.leftside .smalltit h1 {
+  font-size: 18px;
+  line-height: 40px;
+}
+.leftside h2 {
+  font-size: 16px;
+  padding: 10px;
+}
+.leftside strong {
+  font-size: 16px;
+}
+.leftside p {
+  font-size: 14px;
+  line-height: 40px;
+}
+.container_iphone .rightside {
+  flex: 3;
+  padding: 20px;
+}
+.rightside ul {
+  list-style-type: none; /* Loại bỏ kiểu danh sách mặc định */
+  padding: 0; /* Xóa lề bên trái của danh sách */
+}
+.rightside ul li a {
+  display: grid;
+  grid-template-columns: auto auto;
+  text-decoration: none;
+  color: black;
+}
+.rightside ul li a h3 {
+  margin-top: 0;
+  margin-left: 5px;
+}
+.rightside ul li {
+  margin-top: 30px;
+}
+.rightside ul li img {
+  width: 120px;
+  height: 60px;
+}
+.prosale {
+  display: grid;
+  grid-template-columns: auto auto auto;
+  margin-bottom: 25px;
+}
+.prosale a {
+  text-align: center;
+  text-decoration: none;
+  margin-left: 10px;
+  margin-right: 10px;
+  background-color: #fff;
+  border-radius: 40px;
+}
+.prosale span {
+  text-decoration: line-through;
+}
+.prosale .textmoney {
+  margin-bottom: 20px;
+}
+.prosale img {
+  width: 150px;
+  height: 150px;
+  border-radius: 40px;
+  padding: 20px;
+}

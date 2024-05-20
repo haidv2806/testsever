@@ -3,13 +3,13 @@
 // console.log($);
 // console.log($$);
 // console.log(document.querySelector);
-// console.log("asdasda"); 
+// console.log("asdasda");
 function $(selector) {
-    return document.querySelector(selector);
+  return document.querySelector(selector);
 }
 
 function $$(selector) {
-    return document.querySelectorAll(selector);
+  return document.querySelectorAll(selector);
 }
 // Định nghĩa biến templateLoadedEvent trong tệp script JavaScript
 // const templateLoadedEvent = "template-loaded";
@@ -22,8 +22,6 @@ function $$(selector) {
 
 // window.addEventListener("template-loaded", handleActiveMenu);
 // console.log(window.addEventListener("template-loaded", handleActiveMenu));
-
-
 
 /**
  * Hàm tải template
@@ -58,21 +56,21 @@ function $$(selector) {
  * có bị ẩn bởi display: none không
  */
 function isHidden(element) {
-    if (!element) return true;
+  if (!element) return true;
 
-    if (window.getComputedStyle(element).display === "none") {
-        return true;
+  if (window.getComputedStyle(element).display === "none") {
+    return true;
+  }
+
+  let parent = element.parentElement;
+  while (parent) {
+    if (window.getComputedStyle(parent).display === "none") {
+      return true;
     }
+    parent = parent.parentElement;
+  }
 
-    let parent = element.parentElement;
-    while (parent) {
-        if (window.getComputedStyle(parent).display === "none") {
-            return true;
-        }
-        parent = parent.parentElement;
-    }
-
-    return false;
+  return false;
 }
 
 /**
@@ -80,13 +78,13 @@ function isHidden(element) {
  * sau một khoảng thời gian mới được thực thi
  */
 function debounce(func, timeout = 300) {
-    let timer;
-    return (...args) => {
-        clearTimeout(timer);
-        timer = setTimeout(() => {
-            func.apply(this, args);
-        }, timeout);
-    };
+  let timer;
+  return (...args) => {
+    clearTimeout(timer);
+    timer = setTimeout(() => {
+      func.apply(this, args);
+    }, timeout);
+  };
 }
 
 /**
@@ -97,26 +95,26 @@ function debounce(func, timeout = 300) {
  * 2. CSS "left" cho arrow qua biến "--arrow-left-pos"
  */
 const calArrowPos = debounce(() => {
-    if (isHidden($(".js-dropdown-list"))) return;
+  if (isHidden($(".js-dropdown-list"))) return;
 
-    const items = $$(".js-dropdown-list > li");
+  const items = $$(".js-dropdown-list > li");
 
-    items.forEach((item) => {
-        const arrowPos = item.offsetLeft + item.offsetWidth / 2;
-        item.style.setProperty("--arrow-left-pos", `${arrowPos}px`);
-    });
+  items.forEach((item) => {
+    const arrowPos = item.offsetLeft + item.offsetWidth / 2;
+    item.style.setProperty("--arrow-left-pos", `${arrowPos}px`);
+  });
 });
 
-// function drop_down() {
-//     if (isHidden($(".js-dropdown-list"))) return;
+function drop_down() {
+  if (isHidden($(".js-dropdown-list"))) return;
 
-//     const items = $$(".js-dropdown-list > li");
+  const items = $$(".js-dropdown-list > li");
 
-//     items.forEach((item) => {
-//         const arrowPos = item.offsetLeft + item.offsetWidth / 2;
-//         item.style.setProperty("--arrow-left-pos", `${arrowPos}px`);
-//     });
-// }
+  items.forEach((item) => {
+    const arrowPos = item.offsetLeft + item.offsetWidth / 2;
+    item.style.setProperty("--arrow-left-pos", `${arrowPos}px`);
+  });
+}
 
 // Tính toán lại vị trí arrow khi resize trình duyệt
 window.addEventListener("resize", calArrowPos);
@@ -132,48 +130,47 @@ window.addEventListener("resize", calArrowPos);
  * 2. Thêm class "js-dropdown" vào class "dropdown" hiện tại
  *  nếu muốn reset lại item active khi ẩn menu
  */
-window.addEventListener("mouseover", handleActiveMenu);
+window.addEventListener("", handleActiveMenu);
 
 function handleActiveMenu() {
-    const dropdowns = $$(".js-dropdown");
-    const menus = $$(".js-menu-list");
-    const activeClass = "menu-column__item--active";
+  const dropdowns = $$(".js-dropdown");
+  const menus = $$(".js-menu-list");
+  const activeClass = "menu-column__item--active";
 
-    const removeActive = (menu) => {
-        menu.querySelector(`.${activeClass}`)?.classList.remove(activeClass);
-    };
+  const removeActive = (menu) => {
+    menu.querySelector(`.${activeClass}`)?.classList.remove(activeClass);
+  };
 
-    const init = () => {
-        menus.forEach((menu) => {
-            const items = menu.children;
-            if (!items.length) return;
+  const init = () => {
+    menus.forEach((menu) => {
+      const items = menu.children;
+      if (!items.length) return;
 
-            removeActive(menu);
-            if (window.innerWidth > 991) items[0].classList.add(activeClass);
+      removeActive(menu);
+      if (window.innerWidth > 991) items[0].classList.add(activeClass);
 
-            Array.from(items).forEach((item) => {
-                item.onmouseenter = () => {
-                    if (window.innerWidth <= 991) return;
-                    removeActive(menu);
-                    item.classList.add(activeClass);
-                };
-                item.onclick = () => {
-                    if (window.innerWidth > 991) return;
-                    removeActive(menu);
-                    item.classList.add(activeClass);
-                    item.scrollIntoView();
-                };
-            });
-        });
-    };
-
-    init();
-
-    dropdowns.forEach((dropdown) => {
-        dropdown.onmouseleave = () => init();
+      Array.from(items).forEach((item) => {
+        item.onmouseenter = () => {
+          if (window.innerWidth <= 991) return;
+          removeActive(menu);
+          item.classList.add(activeClass);
+        };
+        item.onclick = () => {
+          if (window.innerWidth > 991) return;
+          removeActive(menu);
+          item.classList.add(activeClass);
+          item.scrollIntoView();
+        };
+      });
     });
-}
+  };
 
+  init();
+
+  dropdowns.forEach((dropdown) => {
+    dropdown.onmouseleave = () => init();
+  });
+}
 
 // function handleActiveMenu() {
 //     const dropdowns = $$(".js-dropdown");
@@ -266,37 +263,65 @@ function handleActiveMenu() {
  */
 // window.addEventListener("template-loaded", initJsToggle);
 
-function initJsToggle() {
-    // console.log($$(".js-toggle"));
-    $$(".js-toggle").forEach((button) => {
-        // console(88888888);
-        const target = button.getAttribute("toggle-target");
-        if (!target) {
-            document.body.innerText = `Cần thêm toggle-target cho: ${button.outerHTML}`;
-        }
-        button.onclick = (e) => {
-            e.preventDefault();
+document.addEventListener("DOMContentLoaded", function initJsToggle() {
+  const button = document.getElementById("haha");
+  const target = button.getAttribute("toggle-target");
+  if (!target) {
+    document.body.innerText = `Cần thêm toggle-target cho:  ${button.outerHTML}`;
+  }
+  button.onclick = (e) => {
+    e.preventDefault();
 
-            if (!$(target)) {
-                return (document.body.innerText = `Không tìm thấy phần tử "${target}"`);
-            }
-            const isHidden = $(target).classList.contains("hide");
+    if (!$(target)) {
+      return (document.body.innerText = `Không tìm thấy phần tử ${target}`);
+    }
+    const isHidden = $(target).classList.contains("hide");
 
-            requestAnimationFrame(() => {
-                $(target).classList.toggle("hide", !isHidden);
-                $(target).classList.toggle("show", isHidden);
-            });
-        };
-        document.onclick = function (e) {
-            if (!e.target.closest(target)) {
-                const isHidden = $(target).classList.contains("hide");
-                if (!isHidden) {
-                    button.click();
-                }
-            }
-        };
+    requestAnimationFrame(() => {
+      $(target).classList.toggle("hide", !isHidden);
+      $(target).classList.toggle("show", isHidden);
     });
-}
+  };
+  document.onclick = function (e) {
+    if (!e.target.closest(target)) {
+      const isHidden = $(target).classList.contains("hide");
+      if (!isHidden) {
+        button.click();
+      }
+    }
+  };
+});
+// function initJsToggle() {
+//   //   console.log("aaaaaaaaaaaa");
+//   $$(".js-toggle").forEach((button) => {
+//     // console(88888888);
+//     const target = button.getAttribute("toggle-target");
+//     if (!target) {
+//       document.body.innerText = `Cần thêm toggle-target cho: ${button.outerHTML}`;
+//     }
+//     button.onclick = (e) => {
+//       e.preventDefault();
+
+//       if (!$(target)) {
+//         return (document.body.innerText = `Không tìm thấy phần tử "${target}"`);
+//       }
+//       const isHidden = $(target).classList.contains("hide");
+
+//       requestAnimationFrame(() => {
+//         $(target).classList.toggle("hide", !isHidden);
+//         $(target).classList.toggle("show", isHidden);
+//       });
+//     };
+//     document.onclick = function (e) {
+//       if (!e.target.closest(target)) {
+//         const isHidden = $(target).classList.contains("hide");
+//         if (!isHidden) {
+//           button.click();
+//         }
+//       }
+//     };
+//   });
+// }
 
 // window.addEventListener("template-loaded", () => {
 //     const links = $$(".js-dropdown-list > li > a");
@@ -335,14 +360,17 @@ function initJsToggle() {
 // window.addEventListener("template-loaded", () => {
 //     const switchBtn = document.querySelector("#switch-theme-btn");
 //     if (switchBtn) {
-//         switchBtn.onclick = 
+//         switchBtn.onclick =
 
-        function theme_color() {
-            const isDark = localStorage.dark === "true";
-            document.querySelector("html").classList.toggle("dark", !isDark);
-            localStorage.setItem("dark", !isDark);
-            switchBtn.querySelector("span").textContent = isDark ? "Dark mode" : "Light mode";
-        };
+function theme_color() {
+  //   console.log("theme_color");
+  const isDark = localStorage.dark === "true";
+  document.querySelector("html").classList.toggle("dark", !isDark);
+  localStorage.setItem("dark", !isDark);
+  switchBtn.querySelector("span").textContent = isDark
+    ? "Dark mode"
+    : "Light mode";
+}
 //         const isDark = localStorage.dark === "true";
 //         switchBtn.querySelector("span").textContent = isDark ? "Light mode" : "Dark mode";
 //     }
@@ -353,91 +381,90 @@ function initJsToggle() {
 
 // nhận onclick san phẩm yêu thích
 function fav_product(button) {
-    var product_id = button.getAttribute("data-product-id");
+  var product_id = button.getAttribute("data-product-id");
 
-    // Tạo một đối tượng XMLHttpRequest
-    var xhr = new XMLHttpRequest();
+  // Tạo một đối tượng XMLHttpRequest
+  var xhr = new XMLHttpRequest();
 
-    // Định nghĩa phương thức và URL của request
-    xhr.open("POST", "/user_favourite", true);
+  // Định nghĩa phương thức và URL của request
+  xhr.open("POST", "/user_favourite", true);
 
-    // Thiết lập header cho request
-    xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+  // Thiết lập header cho request
+  xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
 
-    // Xử lý khi request được hoàn thành
-    xhr.onreadystatechange = function() {
-        if (xhr.readyState == 4 && xhr.status == 200) {
-            // Xử lý phản hồi từ backend nếu cần
-            console.log(xhr.responseText);
-        }
-    };
+  // Xử lý khi request được hoàn thành
+  xhr.onreadystatechange = function () {
+    if (xhr.readyState == 4 && xhr.status == 200) {
+      // Xử lý phản hồi từ backend nếu cần
+      console.log(xhr.responseText);
+    }
+  };
 
-    // Tạo dữ liệu để gửi đến backend
-    var data = "product_id=" + product_id;
+  // Tạo dữ liệu để gửi đến backend
+  var data = "product_id=" + product_id;
 
-    // Gửi request với dữ liệu đã tạo
-    xhr.send(data);
+  // Gửi request với dữ liệu đã tạo
+  xhr.send(data);
 }
 
 //thêm 1 sản phẩm yêu thích trong cơ sở dữ liệu
 function fav_product_plus(button) {
-    var product_id = button.getAttribute("data-product-id");
+  var product_id = button.getAttribute("data-product-id");
 
-    // Tạo một đối tượng XMLHttpRequest
-    var xhr = new XMLHttpRequest();
+  // Tạo một đối tượng XMLHttpRequest
+  var xhr = new XMLHttpRequest();
 
     // Định nghĩa phương thức và URL của request
-    xhr.open("PATCH", "/user_favourite_plus", true);
+    xhr.open("POST", "/user_favourite_plus", true);
 
-    // Thiết lập header cho request
-    xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+  // Thiết lập header cho request
+  xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
 
-    // Xử lý khi request được hoàn thành
-    xhr.onreadystatechange = function() {
-        if (xhr.readyState == 4 && xhr.status == 200) {
-            // Xử lý phản hồi từ backend nếu cần
-            console.log(xhr.responseText);
-        }
-    };
+  // Xử lý khi request được hoàn thành
+  xhr.onreadystatechange = function () {
+    if (xhr.readyState == 4 && xhr.status == 200) {
+      // Xử lý phản hồi từ backend nếu cần
+      console.log(xhr.responseText);
+    }
+  };
 
-    // Tạo dữ liệu để gửi đến backend
-    var data = "product_id=" + product_id;
+  // Tạo dữ liệu để gửi đến backend
+  var data = "product_id=" + product_id;
 
-    // Gửi request với dữ liệu đã tạo
-    xhr.send(data);
+  // Gửi request với dữ liệu đã tạo
+  xhr.send(data);
 }
 
 //trừ đi một sản phẩm yêu thích trong cơ sở dữ liệu
 function fav_product_minus(button) {
-    var product_id = button.getAttribute("data-product-id");
+  var product_id = button.getAttribute("data-product-id");
 
-    // Tạo một đối tượng XMLHttpRequest
-    var xhr = new XMLHttpRequest();
+  // Tạo một đối tượng XMLHttpRequest
+  var xhr = new XMLHttpRequest();
 
-    // Định nghĩa phương thức và URL của request
-    xhr.open("POST", "/user_favourite_minus", true);
+  // Định nghĩa phương thức và URL của request
+  xhr.open("POST", "/user_favourite_minus", true);
 
-    // Thiết lập header cho request
-    xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+  // Thiết lập header cho request
+  xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
 
-    // Xử lý khi request được hoàn thành
-    xhr.onreadystatechange = function() {
-        if (xhr.readyState == 4 && xhr.status == 200) {
-            // Xử lý phản hồi từ backend nếu cần
-            console.log(xhr.responseText);
-        }
-    };
+  // Xử lý khi request được hoàn thành
+  xhr.onreadystatechange = function () {
+    if (xhr.readyState == 4 && xhr.status == 200) {
+      // Xử lý phản hồi từ backend nếu cần
+      console.log(xhr.responseText);
+    }
+  };
 
-    // Tạo dữ liệu để gửi đến backend
-    var data = "product_id=" + product_id;
+  // Tạo dữ liệu để gửi đến backend
+  var data = "product_id=" + product_id;
 
-    // Gửi request với dữ liệu đã tạo
-    xhr.send(data);
+  // Gửi request với dữ liệu đã tạo
+  xhr.send(data);
 }
 
-
 function reloadPage() {
-    // window.location.reload();
-    // object.reload(forcedReload);
-    location.reload();
+  // window.location.reload();
+  // object.reload(forcedReload);
+  location.reload();
 }

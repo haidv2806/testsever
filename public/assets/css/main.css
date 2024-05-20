@@ -2302,6 +2302,11 @@ html {
   }
 }
 
+.menu-column__item--active .sub-menu,
+.menu-column__item:hover .sub-menu {
+  display: grid;
+}
+
 .slideshow {
   position: relative;
 }
@@ -2554,6 +2559,7 @@ html {
   width: 100%;
   height: 100%;
   object-fit: contain;
+  border-radius: 10px;
 }
 .product-card__like-btn {
   position: absolute;
@@ -3167,6 +3173,10 @@ html {
 .search-bar__submit {
   height: 100%;
   padding: 0 15px;
+}
+
+.search-box_form {
+  display: flex;
 }
 
 .review-card {
